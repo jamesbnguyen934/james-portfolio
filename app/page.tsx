@@ -1,0 +1,27 @@
+import Navigation from '@/components/navigation'
+import Hero from '@/components/hero'
+import Stats from '@/components/stats'
+import Experience from '@/components/experience'
+import Skills from '@/components/skills'
+import Portfolio from '@/components/portfolio'
+import Education from '@/components/education'
+import Contact from '@/components/contact'
+import Footer from '@/components/footer'
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      <main>
+        <Hero />
+        <Stats />
+        <Experience />
+        <Skills />
+        <Portfolio />
+        <Education />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  )
+}
