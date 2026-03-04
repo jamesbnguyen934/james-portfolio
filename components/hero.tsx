@@ -6,6 +6,7 @@ import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSp
 import Image from 'next/image'
 import { scrollToSection } from '@/lib/scroll'
 import SplitText from './split-text'
+import AmbientSnowflakes from './frozen-easter-egg'
 
 const socialLinks = [
   { icon: Github,   label: 'GitHub',   href: 'https://github.com/jamesbnguyen934' },
@@ -91,6 +92,9 @@ export default function Hero() {
         <div
           className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-cyan-900/12 blur-[110px]"
         />
+        {/* Ambient snowflakes */}
+        <AmbientSnowflakes />
+
         {/* Dot grid */}
         <div className="absolute inset-0 dot-grid opacity-30" />
       </div>

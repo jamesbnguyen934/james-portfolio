@@ -343,7 +343,7 @@ export default function Portfolio() {
             </div>
             <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl flex-shrink-0"
               style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
-              <span className="text-2xl font-black text-white">{projects.length}</span>
+              <span className="text-2xl font-black text-white">{projects.length}+</span>
               <span className="text-sm text-slate-400">projects shipped</span>
             </div>
           </div>
