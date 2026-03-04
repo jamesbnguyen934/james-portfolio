@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { Cpu, Database, Cloud, TestTube, Layers, Code2 } from 'lucide-react'
-import { staggerContainer, scaleIn } from '@/lib/animations'
+import { staggerContainer, scaleIn, charSideSlide } from '@/lib/animations'
+import SplitText from '@/components/split-text'
 import type { Variants } from 'framer-motion'
 
 const categories = [
@@ -71,24 +72,32 @@ export default function Skills() {
       <div className="container relative z-10">
 
         {/* Heading */}
-        <motion.div
-          className="mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="mb-14">
           <span className="section-label-bright mb-5 inline-flex">
             Tech Stack
           </span>
           <h2 className="text-4xl sm:text-5xl font-black text-white mt-5 mb-4 tracking-tight">
-            Skills &amp;{' '}
-            <span className="gradient-text-bright">Technologies</span>
+            <SplitText
+              text="Skills &"
+              mode="chars"
+              variants={charSideSlide}
+              charDelay={0.04}
+            />{' '}
+            <motion.span
+              initial={{ opacity: 0, y: 8, filter: 'blur(6px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.42, duration: 0.5, ease: 'easeOut' }}
+              style={{ display: 'inline-block' }}
+              className="gradient-text-bright"
+            >
+              Technologies
+            </motion.span>
           </h2>
           <p className="text-slate-400 max-w-xl leading-relaxed">
             A production-tested toolkit refined over 10+ years — from real-time AI streaming interfaces to enterprise-scale monorepos.
           </p>
-        </motion.div>
+        </div>
 
         {/* Category cards grid */}
         <motion.div

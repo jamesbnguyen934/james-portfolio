@@ -3,7 +3,8 @@
 import { useEffect, useRef } from 'react'
 import { motion, useInView, animate, useMotionValue, useTransform } from 'framer-motion'
 import { Users, Globe, Zap, TrendingUp, Activity, BarChart3 } from 'lucide-react'
-import { staggerContainer, fadeUp } from '@/lib/animations'
+import { staggerContainer, fadeUp, charRevolveScale } from '@/lib/animations'
+import SplitText from '@/components/split-text'
 
 type Stat = {
   icon: React.ElementType
@@ -125,24 +126,32 @@ export default function Stats() {
       <div className="container relative z-10">
 
         {/* Heading */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="text-center mb-16">
           <span className="section-label-bright mb-5 inline-flex">
             Impact Metrics
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mt-5 mb-4 tracking-tight">
-            Real-world results{' '}
-            <span className="gradient-text">at scale</span>
+            <SplitText
+              text="Real-world results"
+              mode="chars"
+              variants={charRevolveScale}
+              charDelay={0.04}
+            />{' '}
+            <motion.span
+              initial={{ opacity: 0, y: 8, filter: 'blur(6px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.82, duration: 0.5, ease: 'easeOut' }}
+              style={{ display: 'inline-block' }}
+              className="gradient-text"
+            >
+              at scale
+            </motion.span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto text-base leading-relaxed">
             Every number traces back to shipped code, live systems, and measurable business outcomes.
           </p>
-        </motion.div>
+        </div>
 
         {/* Bento grid — staggered entrance */}
         <motion.div

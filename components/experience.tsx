@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { Calendar, MapPin, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
+import { charBallDrop } from '@/lib/animations'
+import SplitText from '@/components/split-text'
 
 type Achievement = { metric: string; description: string }
 
@@ -228,22 +230,30 @@ export default function Experience() {
       <div className="container relative z-10">
 
         {/* Heading */}
-        <motion.div
-          className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="mb-16">
           <span className="section-label-bright mb-5 inline-flex">Career Timeline</span>
           <h2 className="text-4xl sm:text-5xl font-black text-white mt-5 mb-4 tracking-tight leading-tight">
-            Professional{' '}
-            <span className="gradient-text">Experience</span>
+            <SplitText
+              text="Professional"
+              mode="chars"
+              variants={charBallDrop}
+              charDelay={0.04}
+            />{' '}
+            <motion.span
+              initial={{ opacity: 0, y: 8, filter: 'blur(6px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.58, duration: 0.5, ease: 'easeOut' }}
+              style={{ display: 'inline-block' }}
+              className="gradient-text"
+            >
+              Experience
+            </motion.span>
           </h2>
           <p className="text-slate-400 max-w-xl leading-relaxed">
             10+ years across Google, Meta, and high-growth startups — shipping infrastructure that moved metrics at scale.
           </p>
-        </motion.div>
+        </div>
 
         {/* Timeline */}
         <div className="max-w-3xl relative">

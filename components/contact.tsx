@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion'
 import { Mail, Github, Linkedin, MapPin, Send } from 'lucide-react'
 import { useState } from 'react'
-import { staggerContainer, fadeLeft, fadeRight, fadeUp } from '@/lib/animations'
+import { staggerContainer, fadeLeft, fadeRight, fadeUp, charTwister } from '@/lib/animations'
+import SplitText from '@/components/split-text'
 
 const contactChannels = [
   {
@@ -64,24 +65,32 @@ export default function Contact() {
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[400px] bg-violet-900/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container relative z-10">
-        <motion.div
-          className="mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="mb-14">
           <span className="section-label-bright mb-5 inline-flex">
             Get In Touch
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-white mt-4 mb-4">
-            Let&apos;s Work{' '}
-            <span className="gradient-text">Together</span>
+            <SplitText
+              text="Let's Work"
+              mode="chars"
+              variants={charTwister}
+              charDelay={0.04}
+            />{' '}
+            <motion.span
+              initial={{ opacity: 0, y: 8, filter: 'blur(6px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.50, duration: 0.5, ease: 'easeOut' }}
+              style={{ display: 'inline-block' }}
+              className="gradient-text"
+            >
+              Together
+            </motion.span>
           </h2>
           <p className="text-slate-400 max-w-xl leading-relaxed">
             Open to Staff / Principal Frontend Engineer roles — especially at the intersection of AI products, developer tooling, and infrastructure at scale. Response within 24 hours.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 

@@ -66,6 +66,7 @@ export default function Hero() {
   }
 
   const [statusIdx, setStatusIdx] = useState(0)
+  const [avatarClicked, setAvatarClicked] = useState(false)
   useEffect(() => {
     const timer = setInterval(() => setStatusIdx(i => (i + 1) % statusItems.length), 2500)
     return () => clearInterval(timer)
@@ -326,23 +327,56 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Center avatar — much larger */}
-              <motion.div
-                className="absolute inset-[105px] rounded-full overflow-hidden animate-electric"
-                style={{
-                  boxShadow: '0 0 0 3px rgba(168,85,247,0.5), 0 0 0 6px rgba(168,85,247,0.15), 0 0 60px rgba(168,85,247,0.7), 0 0 120px rgba(232,121,249,0.3)',
-                }}
-                whileHover={{ scale: 1.06 }}
-                transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+              {/* Center avatar — hover zoom + click FRIES burst */}
+              <div
+                className="absolute inset-[105px] cursor-pointer"
+                onClick={() => setAvatarClicked(true)}
               >
-                <Image
-                  src="/avatar.jpg"
-                  alt="James Nguyen"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-              </motion.div>
+                {/* Actual avatar — scales to 130% on hover */}
+                <motion.div
+                  className="absolute inset-0 rounded-full overflow-hidden animate-electric"
+                  style={{
+                    boxShadow: '0 0 0 3px rgba(168,85,247,0.5), 0 0 0 6px rgba(168,85,247,0.15), 0 0 60px rgba(168,85,247,0.7), 0 0 120px rgba(232,121,249,0.3)',
+                  }}
+                  whileHover={{ scale: 1.3 }}
+                  transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+                >
+                  <Image
+                    src="/avatar.jpg"
+                    alt="James Nguyen"
+                    fill
+                    className="object-cover object-top"
+                    priority
+                  />
+                </motion.div>
+
+                {/* FRIES ghost — starts at hover size (1.15), bursts out on click */}
+                <AnimatePresence>
+                  {avatarClicked && (
+                    <motion.div
+                      key="fries-burst"
+                      className="absolute inset-0 rounded-full overflow-hidden pointer-events-none"
+                      initial={{ scale: 1.15, opacity: 0 }}
+                      animate={{ scale: 2.3, opacity: [0, 0.75, 0] }}
+                      exit={{ opacity: 0 }}
+                      transition={{
+                        duration: 0.6,
+                        ease: 'easeOut',
+                        opacity: { times: [0, 0.2, 1], duration: 0.6 },
+                      }}
+                      onAnimationComplete={() => setAvatarClicked(false)}
+                    >
+                      <Image
+                        src="/avatar.jpg"
+                        alt=""
+                        fill
+                        className="object-cover object-top"
+                        aria-hidden
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               {/* Floating tech badges */}
               {techBadges.map(({ label, color, Icon, delay, style: badgeStyle }) => (

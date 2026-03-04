@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { GraduationCap, Calendar, MapPin } from 'lucide-react'
+import { charDropVanish } from '@/lib/animations'
+import SplitText from '@/components/split-text'
 
 export default function Education() {
   return (
@@ -11,21 +13,29 @@ export default function Education() {
       style={{ background: 'linear-gradient(180deg, #06030d 0%, #0a0616 100%)' }}
     >
       <div className="container relative z-10">
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="mb-12">
           <span className="section-label-bright mb-5 inline-flex">
             Education
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-white mt-4">
-            Academic{' '}
-            <span className="gradient-text">Foundation</span>
+            <SplitText
+              text="Academic"
+              mode="chars"
+              variants={charDropVanish}
+              charDelay={0.04}
+            />{' '}
+            <motion.span
+              initial={{ opacity: 0, y: 8, filter: 'blur(6px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.42, duration: 0.5, ease: 'easeOut' }}
+              style={{ display: 'inline-block' }}
+              className="gradient-text"
+            >
+              Foundation
+            </motion.span>
           </h2>
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -4,7 +4,8 @@ import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2, Layers } from 'lucide-react'
-import { staggerContainer, fadeUp } from '@/lib/animations'
+import { staggerContainer, fadeUp, charRevolveDrop } from '@/lib/animations'
+import SplitText from '@/components/split-text'
 
 type Project = {
   id: string
@@ -323,19 +324,27 @@ export default function Portfolio() {
       <div className="container relative z-10">
 
         {/* Heading */}
-        <motion.div
-          className="mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="mb-14">
           <span className="section-label-bright mb-5 inline-flex">Featured Work</span>
           <div className="flex flex-wrap items-end justify-between gap-4 mt-5">
             <div>
               <h2 className="text-4xl sm:text-5xl font-black text-white mb-4 tracking-tight">
-                Deployed{' '}
-                <span className="gradient-text-bright">Systems</span>
+                <SplitText
+                  text="Deployed"
+                  mode="chars"
+                  variants={charRevolveDrop}
+                  charDelay={0.04}
+                />{' '}
+                <motion.span
+                  initial={{ opacity: 0, y: 8, filter: 'blur(6px)' }}
+                  whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.42, duration: 0.5, ease: 'easeOut' }}
+                  style={{ display: 'inline-block' }}
+                  className="gradient-text-bright"
+                >
+                  Systems
+                </motion.span>
               </h2>
               <p className="text-slate-400 max-w-xl leading-relaxed">
                 Mission-critical AI platforms engineered for enterprise scale — combining robust frontend architecture with cutting-edge AI capabilities.
@@ -347,7 +356,7 @@ export default function Portfolio() {
               <span className="text-sm text-slate-400">projects shipped</span>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         <motion.div
           className="space-y-6"
