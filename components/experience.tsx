@@ -25,7 +25,7 @@ const jobs: Job[] = [
     role: 'Senior Frontend Engineer, AI & Infrastructure',
     period: 'Jan 2025 – Present',
     location: 'Remote, USA',
-    accentColor: '#818cf8',
+    accentColor: '#8b5cf6',
     achievements: [
       { metric: '+40% delivery · 97% CSAT',       description: 'Architected unified Next.js/React infrastructure across 15+ enterprise applications' },
       { metric: '50%+ latency cut',                description: 'Integrated Vercel AI SDK + LLM streaming via SSE into live dashboards' },
@@ -53,7 +53,7 @@ const jobs: Job[] = [
     role: 'Senior Software Engineer (E5), Frontend Infrastructure',
     period: 'Aug 2016 – Feb 2019',
     location: 'Menlo Park, CA, USA',
-    accentColor: '#c084fc',
+    accentColor: '#818cf8',
     achievements: [
       { metric: '-2.3s TTI low-bandwidth',    description: 'Rendering path optimization for Ads Manager (React/Redux) — $4B+ annual ad spend' },
       { metric: '95% UI regressions blocked', description: 'Pioneered Python visual regression testing framework integrated into CI/CD' },
@@ -67,7 +67,7 @@ const jobs: Job[] = [
     role: 'Software Developer Intern',
     period: 'Jun 2013 – Jul 2016',
     location: 'Mountain View, CA, USA',
-    accentColor: '#e879f9',
+    accentColor: '#06b6d4',
     achievements: [
       { metric: '<200ms latency · 3B+ users', description: 'Engineered real-time streaming UI for AI-assisted writing in Google Docs' },
       { metric: 'Lighthouse 68 → 94',         description: 'Rebuilt shared React component library across 12 Google Workspace product surfaces' },
@@ -122,7 +122,7 @@ function JobCard({ job, num, defaultOpen = false }: { job: Job; num: number; def
     <div
       className="rounded-2xl overflow-hidden transition-all duration-300"
       style={{
-        background: 'linear-gradient(145deg, #130c24, #1a0f2e)',
+        background: 'linear-gradient(145deg, #100a1e, #1a0f2e)',
         borderTop: `1px solid ${open ? `${job.accentColor}40` : 'rgba(139,92,246,0.12)'}`,
         borderRight: `1px solid ${open ? `${job.accentColor}40` : 'rgba(139,92,246,0.12)'}`,
         borderBottom: `1px solid ${open ? `${job.accentColor}40` : 'rgba(139,92,246,0.12)'}`,
@@ -152,11 +152,11 @@ function JobCard({ job, num, defaultOpen = false }: { job: Job; num: number; def
           {job.id === 'BOT' && (
             <motion.div
               className="inline-flex items-center gap-1.5 mb-4 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider"
-              style={{ background: 'rgba(16,185,129,0.1)', color: '#34d399', border: '1px solid rgba(16,185,129,0.28)' }}
-              animate={{ boxShadow: ['0 0 0 0 rgba(16,185,129,0.35)', '0 0 0 8px rgba(16,185,129,0)', '0 0 0 0 rgba(16,185,129,0)'] }}
+              style={{ background: 'rgba(139,92,246,0.1)', color: '#c4b5fd', border: '1px solid rgba(139,92,246,0.28)' }}
+              animate={{ boxShadow: ['0 0 0 0 rgba(139,92,246,0.35)', '0 0 0 8px rgba(139,92,246,0)', '0 0 0 0 rgba(139,92,246,0)'] }}
               transition={{ duration: 2.5, repeat: Infinity }}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
+              <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse inline-block" />
               Current Role
             </motion.div>
           )}
@@ -225,7 +225,7 @@ export default function Experience() {
       style={{ background: '#06030d' }}
     >
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-violet-900/12 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full bg-fuchsia-900/10 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full bg-indigo-900/10 blur-[100px] pointer-events-none" />
 
       <div className="container relative z-10">
 
@@ -262,8 +262,8 @@ export default function Experience() {
           <motion.div
             className="absolute left-5 top-6 bottom-6 w-px hidden md:block pointer-events-none"
             style={{
-              background: 'linear-gradient(180deg, #818cf8 0%, #a78bfa 33%, #c084fc 66%, #e879f9 100%)',
-              boxShadow: '0 0 10px rgba(167,139,250,0.45)',
+              background: 'linear-gradient(180deg, #8b5cf6 0%, #a78bfa 33%, #818cf8 66%, #06b6d4 100%)',
+              boxShadow: '0 0 10px rgba(139,92,246,0.45)',
             }}
             initial={{ scaleY: 0, transformOrigin: 'top' }}
             whileInView={{ scaleY: 1 }}

@@ -5,57 +5,101 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 export default function CursorGlow() {
   const [visible, setVisible] = useState(false)
+  const [hovering, setHovering] = useState(false)
+  const [clicking, setClicking] = useState(false)
 
+  // Dot follows cursor exactly (no spring — pixel-perfect)
+  const dotX = useMotionValue(-300)
+  const dotY = useMotionValue(-300)
+
+  // Ambient glow — slow, barely perceptible
   const rawX = useMotionValue(-300)
   const rawY = useMotionValue(-300)
-  const x = useSpring(rawX, { stiffness: 140, damping: 25 })
-  const y = useSpring(rawY, { stiffness: 140, damping: 25 })
+  const glowX = useSpring(rawX, { stiffness: 55, damping: 22 })
+  const glowY = useSpring(rawY, { stiffness: 55, damping: 22 })
 
   useEffect(() => {
-    // Only on pointer-precise (mouse) devices
     if (!window.matchMedia('(pointer: fine)').matches) return
-
     setVisible(true)
-    const move = (e: MouseEvent) => {
+
+    const onMove = (e: MouseEvent) => {
+      dotX.set(e.clientX)
+      dotY.set(e.clientY)
       rawX.set(e.clientX)
       rawY.set(e.clientY)
     }
-    window.addEventListener('mousemove', move)
-    return () => window.removeEventListener('mousemove', move)
-  }, [rawX, rawY])
+
+    const onOver = (e: MouseEvent) => {
+      const t = e.target as HTMLElement
+      if (t.closest('button, a, [role="button"], input, textarea, select, label')) {
+        setHovering(true)
+      }
+    }
+
+    const onOut = (e: MouseEvent) => {
+      const t = e.target as HTMLElement
+      if (t.closest('button, a, [role="button"], input, textarea, select, label')) {
+        setHovering(false)
+      }
+    }
+
+    const onDown = () => setClicking(true)
+    const onUp   = () => setClicking(false)
+
+    window.addEventListener('mousemove', onMove)
+    window.addEventListener('mouseover', onOver)
+    window.addEventListener('mouseout',  onOut)
+    window.addEventListener('mousedown', onDown)
+    window.addEventListener('mouseup',   onUp)
+
+    return () => {
+      window.removeEventListener('mousemove', onMove)
+      window.removeEventListener('mouseover', onOver)
+      window.removeEventListener('mouseout',  onOut)
+      window.removeEventListener('mousedown', onDown)
+      window.removeEventListener('mouseup',   onUp)
+    }
+  }, [dotX, dotY, rawX, rawY])
 
   if (!visible) return null
 
   return (
     <>
-      {/* Large ambient blob that follows cursor */}
+      {/* ── Ambient glow — subtle, follows slowly ── */}
       <motion.div
-        className="pointer-events-none fixed z-[2] rounded-full"
+        className="pointer-events-none fixed z-[1] rounded-full"
         style={{
-          width: 520,
-          height: 520,
-          x,
-          y,
+          width: 160,
+          height: 160,
+          x: glowX,
+          y: glowY,
           translateX: '-50%',
           translateY: '-50%',
           background:
-            'radial-gradient(circle, rgba(139,92,246,0.06) 0%, rgba(139,92,246,0.02) 40%, transparent 70%)',
+            'radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 65%)',
         }}
       />
 
-      {/* Small precise glow dot */}
+      {/* ── Precise dot — exact cursor position ── */}
       <motion.div
         className="pointer-events-none fixed z-[61] rounded-full"
+        animate={{
+          scale: clicking ? 0.5 : hovering ? 1.8 : 1,
+          background: hovering
+            ? 'rgba(232,121,249,0.95)'
+            : 'rgba(192,132,252,0.95)',
+        }}
+        transition={{ type: 'spring', stiffness: 400, damping: 20 }}
         style={{
-          width: 10,
-          height: 10,
-          x,
-          y,
+          width: 6,
+          height: 6,
+          x: dotX,
+          y: dotY,
           translateX: '-50%',
           translateY: '-50%',
-          background: 'rgba(139,92,246,0.75)',
-          boxShadow:
-            '0 0 14px rgba(139,92,246,0.9), 0 0 28px rgba(168,85,247,0.4)',
+          boxShadow: hovering
+            ? '0 0 10px rgba(232,121,249,0.9), 0 0 22px rgba(232,121,249,0.4)'
+            : '0 0 8px rgba(139,92,246,0.9), 0 0 18px rgba(139,92,246,0.4)',
           mixBlendMode: 'screen',
         }}
       />

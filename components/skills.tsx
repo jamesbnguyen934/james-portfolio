@@ -10,7 +10,7 @@ const categories = [
   {
     label: 'Languages',
     icon: Code2,
-    color: '#818cf8',
+    color: '#8b5cf6',
     skills: ['TypeScript', 'JavaScript ES6+', 'Python', 'HTML5', 'CSS3 / SCSS'],
   },
   {
@@ -22,25 +22,25 @@ const categories = [
   {
     label: 'AI & ML',
     icon: Cpu,
-    color: '#c084fc',
+    color: '#06b6d4',
     skills: ['Vercel AI SDK', 'OpenAI API', 'Anthropic API', 'LangChain', 'LlamaIndex', 'RAG Architecture', 'LLM Orchestration', 'SSE Streaming'],
   },
   {
     label: 'Backend & Data',
     icon: Database,
-    color: '#e879f9',
+    color: '#818cf8',
     skills: ['Node.js', 'Express', 'FastAPI', 'Flask', 'REST APIs', 'GraphQL', 'WebSockets', 'Supabase', 'PostgreSQL', 'Redis'],
   },
   {
     label: 'Infrastructure & DevOps',
     icon: Cloud,
-    color: '#f472b6',
+    color: '#c4b5fd',
     skills: ['AWS S3 / Lambda / CloudFront', 'Vercel', 'Docker', 'GitHub Actions', 'CI/CD', 'Vite', 'Webpack', 'Monorepo Architecture'],
   },
   {
     label: 'Testing & Quality',
     icon: TestTube,
-    color: '#fb7185',
+    color: '#e879f9',
     skills: ['Jest', 'Cypress', 'Playwright', 'React Testing Library', 'WCAG 2.1 AA', 'Visual Regression'],
   },
 ]

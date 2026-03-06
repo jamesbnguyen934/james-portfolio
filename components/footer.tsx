@@ -77,9 +77,9 @@ export default function Footer() {
                   <MapPin className="h-3.5 w-3.5 text-violet-300" />
                   Marietta, GA · Remote
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-full px-3 py-1.5" style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.18)' }}>
-                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[10px] font-semibold uppercase tracking-widest text-emerald-300">Available</span>
+                <span className="inline-flex items-center gap-2 rounded-full px-3 py-1.5" style={{ background: 'rgba(139,92,246,0.08)', border: '1px solid rgba(139,92,246,0.18)' }}>
+                  <span className="h-2 w-2 rounded-full bg-violet-500 animate-pulse" />
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-violet-300">Available</span>
                 </span>
               </div>
 

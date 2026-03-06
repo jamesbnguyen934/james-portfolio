@@ -4,7 +4,6 @@ import { Space_Grotesk, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import ScrollProgress from '@/components/scroll-progress'
-import CursorGlow from '@/components/cursor-glow'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -125,7 +124,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         <ScrollProgress />
-        <CursorGlow />
         <Analytics />
         <SpeedInsights />
         {children}

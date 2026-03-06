@@ -25,7 +25,7 @@ const stats: Stat[] = [
     value: '3B+',
     label: 'Global Users Reached',
     sub: 'Shipped products used by 3B+ people globally — Google Docs AI and Workspace productivity tools.',
-    color: '#818cf8',
+    color: '#8b5cf6',
     colSpan: 2,
     counter: { to: 3, suffix: 'B+' },
   },
@@ -43,7 +43,7 @@ const stats: Stat[] = [
     value: '15+',
     label: 'Enterprise Apps',
     sub: 'Architected at Blue Ocean Technology',
-    color: '#c084fc',
+    color: '#a78bfa',
     colSpan: 1,
     counter: { to: 15, suffix: '+' },
   },
@@ -52,7 +52,7 @@ const stats: Stat[] = [
     value: '600+',
     label: 'Eng. Hours / yr Saved',
     sub: 'Via CI/CD automation & observability',
-    color: '#e879f9',
+    color: '#818cf8',
     colSpan: 1,
     counter: { to: 600, suffix: '+', duration: 1.4 },
   },
@@ -61,7 +61,7 @@ const stats: Stat[] = [
     value: '50%',
     label: 'AI Latency Reduction',
     sub: 'SSE LLM streaming pipeline',
-    color: '#f472b6',
+    color: '#c4b5fd',
     colSpan: 1,
     counter: { to: 50, suffix: '%' },
   },
@@ -70,7 +70,7 @@ const stats: Stat[] = [
     value: '+38pts',
     label: 'Lighthouse Score Jump',
     sub: 'Rebuilt shared React component library across 12 Google Workspace product surfaces, achieving 97th-percentile performance globally.',
-    color: '#fb7185',
+    color: '#e879f9',
     colSpan: 3,
     featured: true,
     before: '68',
@@ -121,7 +121,7 @@ export default function Stats() {
     >
       {/* Background */}
       <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] rounded-full bg-violet-900/8 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] rounded-full bg-violet-900/10 blur-[120px] pointer-events-none" />
 
       <div className="container relative z-10">
 
@@ -170,7 +170,7 @@ export default function Stats() {
             return (
               <motion.div
                 key={i}
-                className={`relative group overflow-hidden rounded-2xl hover-shimmer ${colClass}`}
+                className={`relative group overflow-hidden rounded-2xl hover-shimmer scan-on-hover ${colClass}`}
                 style={{
                   background: 'linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%)',
                   border: '1px solid rgba(139,92,246,0.16)',
@@ -230,7 +230,7 @@ export default function Stats() {
                         <div className="text-slate-500 text-xl font-light">→</div>
                         <div>
                           <div className="text-[10px] font-semibold uppercase tracking-widest text-slate-500 mb-1">After</div>
-                          <div className="text-3xl font-black text-emerald-400">{s.after}</div>
+                          <div className="text-3xl font-black text-violet-400">{s.after}</div>
                         </div>
                         <div
                           className="ml-2 px-4 py-2 rounded-xl text-sm font-bold"

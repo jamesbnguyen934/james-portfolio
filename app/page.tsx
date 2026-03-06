@@ -3,6 +3,7 @@ import Hero from '@/components/hero'
 import Stats from '@/components/stats'
 import Experience from '@/components/experience'
 import Skills from '@/components/skills'
+import GitHubStats from '@/components/github-stats'
 import Portfolio from '@/components/portfolio'
 import Education from '@/components/education'
 import Contact from '@/components/contact'
@@ -17,6 +18,7 @@ export default function Home() {
         <Stats />
         <Experience />
         <Skills />
+        <GitHubStats />
         <Portfolio />
         <Education />
         <Contact />

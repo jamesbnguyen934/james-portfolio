@@ -36,7 +36,7 @@ const projects: Project[] = [
       'SSO / MFA integration',
     ],
     techStack: ['Python', 'AWS', 'Redis', 'LLM Orchestration', 'SOC2'],
-    accent: '#818cf8',
+    accent: '#8b5cf6',
     featured: true,
   },
   {
@@ -71,7 +71,7 @@ const projects: Project[] = [
       'Multi-coaching model compatibility',
     ],
     techStack: ['React', 'Tailwind CSS', 'Node.js', 'Supabase', 'AWS', 'HIPAA'],
-    accent: '#c084fc',
+    accent: '#818cf8',
   },
   {
     id: '04',
@@ -88,13 +88,13 @@ const projects: Project[] = [
       'Multi-workspace collaborative support',
     ],
     techStack: ['React', 'TypeScript', 'Node.js', 'LLM', 'WebSockets'],
-    accent: '#34d399',
+    accent: '#c4b5fd',
   },
   {
     id: '05',
     title: 'Fulgent AI',
     category: 'Generative AI Platform',
-    url: 'https://fulgent.ai',
+    url: 'https://fulgentai.com',
     images: ['/projects/fulgent-1.png', '/projects/fulgent-2.jpg', '/projects/fulgent-3.jpg'],
     description:
       'Advanced AI headshot generator producing photorealistic professional portraits across 20+ styles — powered by custom fine-tuned diffusion models for enterprise use.',
@@ -139,7 +139,7 @@ const projects: Project[] = [
       'Script-to-video generation pipeline',
     ],
     techStack: ['React', 'Node.js', 'AWS', 'AI/LLM', 'FFmpeg'],
-    accent: '#6366f1',
+    accent: '#06b6d4',
   },
 ]
 
@@ -175,11 +175,11 @@ function ImageSlider({ images, title, sizes }: { images: string[]; title: string
 
       {/* Arrows */}
       <button type="button" onClick={prev} className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-        style={{ background: 'rgba(6,3,13,0.8)', border: '1px solid rgba(255,255,255,0.15)', backdropFilter: 'blur(6px)' }}>
+        style={{ background: 'rgba(3,13,6,0.8)', border: '1px solid rgba(255,255,255,0.15)', backdropFilter: 'blur(6px)' }}>
         <ChevronLeft className="w-3.5 h-3.5 text-white" />
       </button>
       <button type="button" onClick={next} className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-        style={{ background: 'rgba(6,3,13,0.8)', border: '1px solid rgba(255,255,255,0.15)', backdropFilter: 'blur(6px)' }}>
+        style={{ background: 'rgba(3,13,6,0.8)', border: '1px solid rgba(255,255,255,0.15)', backdropFilter: 'blur(6px)' }}>
         <ChevronRight className="w-3.5 h-3.5 text-white" />
       </button>
 
@@ -220,9 +220,9 @@ function ProjectCard({ p }: { p: Project }) {
   return (
     <motion.div
       ref={ref}
-      className="group relative rounded-2xl overflow-hidden flex flex-col"
+      className="group relative rounded-2xl overflow-hidden flex flex-col scan-on-hover"
       style={{
-        background: 'linear-gradient(145deg, #130c24, #1a0f2e)',
+        background: 'linear-gradient(145deg, #100a1e, #1a0f2e)',
         border: `1px solid ${p.accent}20`,
         transformStyle: 'preserve-3d',
         rotateX,
@@ -248,19 +248,19 @@ function ProjectCard({ p }: { p: Project }) {
         <ImageSlider images={p.images} title={p.title} sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" />
 
         {/* Permanent bottom gradient for footer readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#130c24]/95 via-[#130c24]/20 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#100a1e]/95 via-[#100a1e]/20 to-transparent z-10 pointer-events-none" />
 
         {/* Live badge */}
         <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5">
-          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-[9px] font-semibold text-emerald-400 uppercase tracking-wider">Live</span>
+          <div className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
+          <span className="text-[9px] font-semibold text-violet-400 uppercase tracking-wider">Live</span>
         </div>
 
         {/* Hover reveal overlay — slides up */}
         <div
           className="absolute inset-0 z-20 flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto"
           style={{
-            background: `linear-gradient(to top, rgba(6,3,13,0.97) 0%, rgba(6,3,13,0.75) 55%, transparent 100%)`,
+            background: `linear-gradient(to top, rgba(3,13,6,0.97) 0%, rgba(3,13,6,0.75) 55%, transparent 100%)`,
             transition: 'opacity 0.3s ease',
           }}
         >
@@ -319,7 +319,7 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="relative py-28 md:py-32 overflow-hidden">
       <div className="absolute inset-0 page-bg pointer-events-none" />
-      <div className="absolute -bottom-40 left-1/4 w-[600px] h-[400px] rounded-full bg-purple-900/12 blur-[120px] pointer-events-none" />
+      <div className="absolute -bottom-40 left-1/4 w-[600px] h-[400px] rounded-full bg-violet-900/12 blur-[120px] pointer-events-none" />
 
       <div className="container relative z-10">
 
@@ -368,9 +368,9 @@ export default function Portfolio() {
           {/* ── Featured card ── */}
           <motion.div
             ref={featRef}
-            className="group relative rounded-3xl overflow-hidden"
+            className="group relative rounded-3xl overflow-hidden scan-on-hover"
             style={{
-              background: 'linear-gradient(145deg, #130c24, #1a0f2e)',
+              background: 'linear-gradient(145deg, #100a1e, #1a0f2e)',
               border: `1px solid ${featured.accent}22`,
               transformStyle: 'preserve-3d',
               rotateX: featRX,
@@ -389,18 +389,18 @@ export default function Portfolio() {
               ;(e.currentTarget as HTMLElement).style.boxShadow = `0 0 55px ${featured.accent}20, 0 24px 50px rgba(0,0,0,0.4)`
             }}
           >
-            <div className="h-0.5 w-full" style={{ background: `linear-gradient(90deg, transparent, ${featured.accent}, #22d3ee, transparent)` }} />
+            <div className="h-0.5 w-full" style={{ background: `linear-gradient(90deg, transparent, ${featured.accent}, #818cf8, transparent)` }} />
 
             <div className="flex flex-col lg:flex-row">
               {/* Image with slider */}
               <div className="relative lg:w-[55%] aspect-video lg:aspect-auto overflow-hidden">
                 <ImageSlider images={featured.images} title={featured.title} sizes="(min-width: 1024px) 55vw, 100vw" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#130c24] hidden lg:block z-10 pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#130c24] to-transparent lg:hidden z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#100a1e] hidden lg:block z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#100a1e] to-transparent lg:hidden z-10 pointer-events-none" />
                 <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full"
-                  style={{ background: 'rgba(6,3,13,0.7)', border: '1px solid rgba(16,185,129,0.3)', backdropFilter: 'blur(8px)' }}>
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[10px] font-semibold text-emerald-300 uppercase tracking-wider">Live</span>
+                  style={{ background: 'rgba(3,13,6,0.7)', border: '1px solid rgba(139,92,246,0.3)', backdropFilter: 'blur(8px)' }}>
+                  <div className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
+                  <span className="text-[10px] font-semibold text-violet-300 uppercase tracking-wider">Live</span>
                 </div>
                 <div className="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-full"
                   style={{ background: `${featured.accent}20`, border: `1px solid ${featured.accent}40`, backdropFilter: 'blur(8px)' }}>

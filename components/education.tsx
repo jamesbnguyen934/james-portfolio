@@ -47,15 +47,15 @@ export default function Education() {
           <div
             className="rounded-2xl overflow-hidden"
             style={{
-              background: 'linear-gradient(145deg, #130c24, #1a0f2e)',
+              background: 'linear-gradient(145deg, #100a1e, #1a0f2e)',
               border: '1px solid rgba(139,92,246,0.2)',
             }}
           >
-            <div className="h-0.5 w-full bg-gradient-to-r from-violet-600 via-purple-500 to-fuchsia-500" />
+            <div className="h-0.5 w-full bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-500" />
             <div className="p-7 flex items-start gap-5">
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: 'linear-gradient(135deg, #7c3aed, #a855f7)' }}
+                style={{ background: 'linear-gradient(135deg, #6d28d9, #e879f9)' }}
               >
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>

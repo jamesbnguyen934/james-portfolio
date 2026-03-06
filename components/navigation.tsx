@@ -37,7 +37,7 @@ export default function Navigation() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={
         scrolled
-          ? { background: 'rgba(6,3,13,0.85)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(139,92,246,0.15)', paddingTop: '1rem', paddingBottom: '1rem' }
+          ? { background: 'rgba(3,9,14,0.85)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(139,92,246,0.15)', paddingTop: '1rem', paddingBottom: '1rem' }
           : { background: 'transparent', borderBottom: '1px solid transparent', paddingTop: '1.5rem', paddingBottom: '1.5rem' }
       }
     >
@@ -98,7 +98,7 @@ export default function Navigation() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
             className="lg:hidden overflow-hidden"
-            style={{ background: 'rgba(10,6,20,0.97)', borderTop: '1px solid rgba(139,92,246,0.15)' }}
+            style={{ background: 'rgba(3,9,14,0.97)', borderTop: '1px solid rgba(139,92,246,0.15)' }}
           >
             <div className="px-6 py-8 flex flex-col gap-2">
               {navItems.map((item, i) => (

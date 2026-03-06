@@ -22,7 +22,7 @@ export default function Logo({ size = 'md', className = '' }: LogoProps) {
         className={`${badgeSize} rounded-xl overflow-hidden relative flex-shrink-0`}
         style={{ border: '1.5px solid rgba(139,92,246,0.5)', boxShadow: '0 0 10px rgba(139,92,246,0.3)' }}
       >
-        <Image src="/avatar.jpg" alt="James Nguyen" fill className="object-cover object-top" />
+        <Image src="/avatar.jpg" alt="James Nguyen" fill className="object-cover" style={{ objectPosition: '28% 45%' }} />
       </div>
       <div className="flex flex-col leading-none">
         <span className={`font-heading font-bold text-white tracking-tight ${textSize}`}>

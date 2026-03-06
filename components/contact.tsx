@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Github, Linkedin, MapPin, Send } from 'lucide-react'
+import { Mail, Github, Linkedin, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import { staggerContainer, fadeLeft, fadeRight, fadeUp, charTwister } from '@/lib/animations'
 import SplitText from '@/components/split-text'
@@ -12,7 +12,7 @@ const contactChannels = [
     label: 'Email',
     value: 'james.nguyen93112@gmail.com',
     href: 'mailto:james.nguyen93112@gmail.com',
-    color: '#818cf8',
+    color: '#8b5cf6',
   },
   {
     icon: Linkedin,
@@ -26,14 +26,14 @@ const contactChannels = [
     label: 'GitHub',
     value: 'github.com/jamesbnguyen934',
     href: 'https://github.com/jamesbnguyen934',
-    color: '#c084fc',
+    color: '#818cf8',
   },
   {
     icon: MapPin,
     label: 'Location',
     value: 'Marietta, GA · Remote-First',
     href: null,
-    color: '#e879f9',
+    color: '#06b6d4',
   },
 ]
 
@@ -45,11 +45,26 @@ const formFields = [
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const body = `NAME: ${formData.name}\nEMAIL: ${formData.email}\nSUBJECT: ${formData.subject}\n\nMESSAGE:\n${formData.message}`
-    window.location.href = `mailto:james.nguyen93112@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(body)}`
+    setStatus('sending')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      if (res.ok) {
+        setStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -115,7 +130,7 @@ export default function Contact() {
                     rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="group flex items-center gap-4 p-4 rounded-xl transition-all duration-300 hover-shimmer"
                     style={{
-                      background: 'linear-gradient(145deg, #130c24, #1a0f2e)',
+                      background: 'linear-gradient(145deg, #100a1e, #1a0f2e)',
                       border: '1px solid rgba(139,92,246,0.15)',
                     }}
                     onMouseEnter={(e) => {
@@ -148,7 +163,7 @@ export default function Contact() {
                   <div
                     className="flex items-center gap-4 p-4 rounded-xl"
                     style={{
-                      background: 'linear-gradient(145deg, #130c24, #1a0f2e)',
+                      background: 'linear-gradient(145deg, #100a1e, #1a0f2e)',
                       border: '1px solid rgba(139,92,246,0.15)',
                     }}
                   >
@@ -174,12 +189,12 @@ export default function Contact() {
               variants={fadeUp}
               className="p-5 rounded-xl mt-2"
               style={{
-                background: 'linear-gradient(145deg, #0d1a14, #0f1f18)',
-                border: '1px solid rgba(16,185,129,0.2)',
+                background: 'linear-gradient(145deg, #100a1e, #1a0f2e)',
+                border: '1px solid rgba(139,92,246,0.2)',
               }}
             >
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
                 <span className="text-sm font-semibold text-white">Currently Available</span>
               </div>
               <p className="text-sm text-slate-400">
@@ -198,11 +213,11 @@ export default function Contact() {
             <div
               className="rounded-2xl overflow-hidden"
               style={{
-                background: 'linear-gradient(145deg, #130c24, #1a0f2e)',
+                background: 'linear-gradient(145deg, #100a1e, #1a0f2e)',
                 border: '1px solid rgba(139,92,246,0.18)',
               }}
             >
-              <div className="h-0.5 w-full bg-gradient-to-r from-violet-600 via-purple-500 to-fuchsia-500" />
+              <div className="h-0.5 w-full bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-500" />
               <motion.form
                 onSubmit={handleSubmit}
                 className="p-7 space-y-5"
@@ -275,17 +290,38 @@ export default function Contact() {
                   />
                 </motion.div>
 
-                <motion.div variants={fadeUp}>
+                <motion.div variants={fadeUp} className="space-y-3">
                   <motion.button
                     type="submit"
-                    className="btn-primary w-full justify-center hover-shimmer"
-                    whileHover={{ scale: 1.02, y: -1 }}
-                    whileTap={{ scale: 0.98 }}
+                    disabled={status === 'sending' || status === 'success'}
+                    className="btn-primary w-full justify-center hover-shimmer disabled:opacity-60 disabled:cursor-not-allowed"
+                    whileHover={status === 'idle' ? { scale: 1.02, y: -1 } : {}}
+                    whileTap={status === 'idle' ? { scale: 0.98 } : {}}
                     transition={{ type: 'spring' as const, stiffness: 300, damping: 18 }}
                   >
-                    Send Message
-                    <Send className="w-3.5 h-3.5" />
+                    {status === 'sending' && <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Sending...</>}
+                    {status === 'success' && <><CheckCircle2 className="w-3.5 h-3.5" /> Message Sent!</>}
+                    {status === 'error' && <><AlertCircle className="w-3.5 h-3.5" /> Try Again</>}
+                    {status === 'idle' && <>Send Message <Send className="w-3.5 h-3.5" /></>}
                   </motion.button>
+                  {status === 'success' && (
+                    <motion.p
+                      initial={{ opacity: 0, y: 4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-center text-xs text-violet-300"
+                    >
+                      Thanks! I&apos;ll respond within 24 hours.
+                    </motion.p>
+                  )}
+                  {status === 'error' && (
+                    <motion.p
+                      initial={{ opacity: 0, y: 4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-center text-xs text-red-400"
+                    >
+                      Something went wrong. Please try emailing me directly.
+                    </motion.p>
+                  )}
                 </motion.div>
               </motion.form>
             </div>
