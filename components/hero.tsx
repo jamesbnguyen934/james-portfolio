@@ -14,17 +14,17 @@ const socialLinks = [
 ] as const
 
 const miniStats = [
-  { value: '10+',  label: 'Years',         color: '#8b5cf6' },
-  { value: '3B+',  label: 'Users Served',  color: '#06b6d4' },
-  { value: '$4B+', label: 'Revenue',       color: '#818cf8' },
-  { value: '15+',  label: 'Ent. Apps',     color: '#c4b5fd' },
+  { value: '10+',        label: 'Years Experience',   color: '#8b5cf6' },
+  { value: '40%',        label: 'Productivity Gain',  color: '#06b6d4' },
+  { value: '3.5s->1.9s', label: 'LCP Improvement',    color: '#818cf8' },
+  { value: '35%->78%',   label: 'Test Coverage',      color: '#c4b5fd' },
 ]
 
 const statusItems = [
-  'obsessing over LLM latency',
-  'shipping enterprise apps',
-  'turning coffee into code',
-  'building things that scale',
+  'building scalable frontend systems',
+  'shipping with React and Next.js',
+  'improving performance and DX',
+  'turning product goals into polished UI',
 ]
 
 // ── Orbiting skill badges ──────────────────────────────────────────
@@ -171,10 +171,10 @@ export default function Hero() {
                 animate={{ clipPath: 'inset(0 0% 0 0)', opacity: 1 }}
                 transition={{ duration: 0.9, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                Building Premium AI
+                Senior Frontend
               </motion.span>
               <SplitText
-                text="Interfaces"
+                text="Engineer"
                 className="text-white/85"
                 mode="chars"
                 charDelay={0.032}
@@ -191,36 +191,29 @@ export default function Hero() {
               style={{ background: 'linear-gradient(90deg, #8b5cf6, #818cf8, #06b6d4)' }}
             />
 
-            {/* Sub-headline — char-by-char animation with proper spacing */}
-            <p className="text-base sm:text-lg text-slate-400 max-w-[520px] leading-relaxed">
-              {/* "I'm" plain fade */}
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.4 }}
-                style={{ display: 'inline-block' }}
+            <div className="max-w-[620px] space-y-3 text-base sm:text-lg leading-relaxed">
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45, duration: 0.5 }}
+                className="text-slate-300"
               >
-                I&apos;m
-              </motion.span>
-              {'\u00A0'}
-              {/* "James Nguyen" — char flip */}
-              <SplitText text="James Nguyen" className="text-white font-semibold" mode="chars" charDelay={0.022} delay={0.48} />
-              {'\u00A0'}
-              {/* ", Senior..." — word blur-up */}
-              <SplitText text=", Senior Frontend Engineer at the intersection of" className="text-slate-400" mode="words" wordDelay={0.038} delay={0.8} />
-              {'\u00A0'}
-              {/* "AI products," — char flip, violet */}
-              <SplitText text="AI products," className="text-violet-300 font-semibold" mode="chars" charDelay={0.028} delay={1.28} />
-              {'\u00A0'}
-              {/* "performance engineering," — char flip, cyan */}
-              <SplitText text="performance engineering," className="text-cyan-300 font-semibold" mode="chars" charDelay={0.02} delay={1.66} />
-              {'\u00A0'}
-              {/* "and UI infrastructure." — char flip, indigo */}
-              <SplitText text="and UI infrastructure." className="text-indigo-300 font-semibold" mode="chars" charDelay={0.025} delay={2.18} />
-              {'\u00A0'}
-              {/* "10+ years..." — word blur-up */}
-              <SplitText text="10+ years shipping at Google & Meta." className="text-slate-400" mode="words" wordDelay={0.05} delay={2.72} />
-            </p>
+                I&apos;m <span className="text-white font-semibold">James Nguyen</span>, a{' '}
+                <span className="text-violet-300 font-semibold">Senior Frontend Engineer</span> with 10+ years of experience
+                building scalable web applications, AI-powered products, and high-performance user interfaces.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.65, duration: 0.5 }}
+                className="text-slate-400"
+              >
+                Specialized in <span className="text-cyan-300 font-semibold">React</span>,{' '}
+                <span className="text-cyan-300 font-semibold">Next.js</span>,{' '}
+                <span className="text-cyan-300 font-semibold">TypeScript</span>, frontend architecture, design systems,
+                and performance optimization across enterprise and startup environments.
+              </motion.p>
+            </div>
 
             {/* Mini stats */}
             <motion.div
@@ -243,7 +236,7 @@ export default function Hero() {
                   style={{ background: `${s.color}12`, border: `1px solid ${s.color}28` }}
                   whileHover={{ scale: 1.05, y: -2 }}
                 >
-                  <span className="text-lg font-black leading-none" style={{ color: s.color }}>{s.value}</span>
+                  <span className="text-base sm:text-lg font-black leading-none" style={{ color: s.color }}>{s.value}</span>
                   <span className="text-xs text-slate-400">{s.label}</span>
                 </motion.div>
               ))}

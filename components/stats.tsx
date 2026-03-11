@@ -21,61 +21,60 @@ type Stat = {
 
 const stats: Stat[] = [
   {
-    icon: Globe,
-    value: '3B+',
-    label: 'Global Users Reached',
-    sub: 'Shipped products used by 3B+ people globally — Google Docs AI and Workspace productivity tools.',
+    icon: Users,
+    value: '10+',
+    label: 'Years in Frontend',
+    sub: 'Building scalable web applications and high-performance user interfaces across enterprise and startup teams.',
     color: '#8b5cf6',
     colSpan: 2,
-    counter: { to: 3, suffix: 'B+' },
+    counter: { to: 10, suffix: '+' },
   },
   {
     icon: TrendingUp,
-    value: '$4B+',
-    label: 'Annual Ad Revenue',
-    sub: 'Meta Ads Manager infrastructure supporting $4B+ yearly ad spend.',
+    value: '40%',
+    label: 'Developer Productivity',
+    sub: 'Improved at Blue Ocean Technology through shared component libraries and design system foundations.',
     color: '#06b6d4',
     colSpan: 1,
-    counter: { prefix: '$', to: 4, suffix: 'B+' },
-  },
-  {
-    icon: Users,
-    value: '15+',
-    label: 'Enterprise Apps',
-    sub: 'Architected at Blue Ocean Technology',
-    color: '#a78bfa',
-    colSpan: 1,
-    counter: { to: 15, suffix: '+' },
+    counter: { to: 40, suffix: '%' },
   },
   {
     icon: Activity,
-    value: '600+',
-    label: 'Eng. Hours / yr Saved',
-    sub: 'Via CI/CD automation & observability',
-    color: '#818cf8',
+    value: '25%',
+    label: 'Workflow Efficiency',
+    sub: 'Improvement delivered through targeted UI redesign work at Wolf Carries.',
+    color: '#a78bfa',
     colSpan: 1,
-    counter: { to: 600, suffix: '+', duration: 1.4 },
+    counter: { to: 25, suffix: '%' },
   },
   {
     icon: Zap,
-    value: '50%',
-    label: 'AI Latency Reduction',
-    sub: 'SSE LLM streaming pipeline',
+    value: '30%',
+    label: 'Fewer Regressions',
+    sub: 'Reduced at Meta through stronger automated UI testing and release quality workflows.',
+    color: '#818cf8',
+    colSpan: 1,
+    counter: { to: 30, suffix: '%' },
+  },
+  {
+    icon: Globe,
+    value: '12',
+    label: 'Features Shipped',
+    sub: 'Delivered from concept to production in agile sprints across key Meta product areas.',
     color: '#c4b5fd',
     colSpan: 1,
-    counter: { to: 50, suffix: '%' },
+    counter: { to: 12 },
   },
   {
     icon: BarChart3,
-    value: '+38pts',
-    label: 'Lighthouse Score Jump',
-    sub: 'Rebuilt shared React component library across 12 Google Workspace product surfaces, achieving 97th-percentile performance globally.',
+    value: '3.5s->1.9s',
+    label: 'Largest Contentful Paint',
+    sub: 'Reduced in production through rendering, bundling, and asset-loading improvements at Blue Ocean Technology.',
     color: '#e879f9',
     colSpan: 3,
     featured: true,
-    before: '68',
-    after: '94',
-    counter: { prefix: '+', to: 38, suffix: 'pts' },
+    before: '3.5s',
+    after: '1.9s',
   },
 ]
 
@@ -208,9 +207,7 @@ export default function Stats() {
                         className="text-5xl font-black text-white leading-none font-heading"
                         style={{ textShadow: `0 0 30px ${s.color}50` }}
                       >
-                        {s.counter ? (
-                          <CountUp {...s.counter} />
-                        ) : s.value}
+                        {s.counter ? <CountUp {...s.counter} /> : s.value}
                       </div>
                       <div className="text-sm font-semibold text-slate-200 mt-2">{s.label}</div>
                     </div>
@@ -236,7 +233,7 @@ export default function Stats() {
                           className="ml-2 px-4 py-2 rounded-xl text-sm font-bold"
                           style={{ background: `${s.color}15`, color: s.color, border: `1px solid ${s.color}25` }}
                         >
-                          97th percentile
+                          Core Web Vitals
                         </div>
                       </div>
                     </div>

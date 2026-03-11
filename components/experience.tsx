@@ -21,58 +21,58 @@ type Job = {
 const jobs: Job[] = [
   {
     id: 'BOT',
-    company: 'Blue Ocean Technology, LLC',
-    role: 'Senior Frontend Engineer, AI & Infrastructure',
+    company: 'Blue Ocean Technology',
+    role: 'Senior Frontend Engineer',
     period: 'Jan 2025 – Present',
     location: 'Remote, USA',
     accentColor: '#8b5cf6',
     achievements: [
-      { metric: '+40% delivery · 97% CSAT',       description: 'Architected unified Next.js/React infrastructure across 15+ enterprise applications' },
-      { metric: '50%+ latency cut',                description: 'Integrated Vercel AI SDK + LLM streaming via SSE into live dashboards' },
-      { metric: 'Weeks → Days onboarding',         description: 'Established modular monorepo with shared Tailwind CSS / Storybook component libraries' },
-      { metric: '600+ hrs/yr recovered',           description: 'Engineered Python-based CI/CD pipeline + automated performance telemetry' },
+      { metric: '+40% dev productivity',    description: 'Built shared TypeScript component libraries & design system foundations powering multiple enterprise products' },
+      { metric: '3.5s → 1.9s LCP',          description: 'Optimized Core Web Vitals via rendering, bundling, and asset-loading improvements in production' },
+      { metric: 'AI-powered features',       description: 'Built real-time chat interfaces, streaming responses, and semantic search workflows for self-service products' },
+      { metric: 'Observability pipeline',    description: 'Implemented Sentry-based monitoring improving error visibility and accelerating incident response' },
     ],
   },
   {
     id: 'WC',
-    company: 'Wolf Careers Inc.',
+    company: 'Wolf Carries',
     role: 'Lead Frontend Engineer',
-    period: 'Mar 2019 – Dec 2024',
+    period: 'Mar 2023 – Dec 2024',
     location: 'Cleveland, OH, USA',
     accentColor: '#a78bfa',
     achievements: [
-      { metric: '+18% completion · +25% engagement', description: 'Led 8-engineer team rebuilding Fortune 500 HR platform (React · TypeScript · Supabase)' },
-      { metric: '-40% manual review time',           description: 'Built Python/Flask REST API for automated resume parsing + multi-modal scoring' },
-      { metric: '-25% sync errors',                  description: 'Architected Workday + Greenhouse ATS integration vendor management system' },
-      { metric: '-15% sprint cycles',                description: 'Standardized Redux Toolkit + React Testing Library workflows org-wide' },
+      { metric: '+25% workflow efficiency',  description: 'Led frontend for a recruiting platform used by thousands of recruiters with targeted UI redesign' },
+      { metric: '35% → 78% test coverage',  description: 'Increased automated test coverage using Jest, Cypress, and modern frontend testing practices' },
+      { metric: 'Legacy → React/TS',         description: 'Migrated legacy frontend codebase to React and TypeScript, reducing technical debt and improving maintainability' },
+      { metric: '-2 wk release cycles',      description: 'Implemented GitHub Actions CI/CD pipeline that shortened release cycles and aligned frontend with product goals' },
     ],
   },
   {
     id: 'META',
     company: 'Meta Platforms, Inc.',
-    role: 'Senior Software Engineer (E5), Frontend Infrastructure',
-    period: 'Aug 2016 – Feb 2019',
+    role: 'Senior Frontend Engineer',
+    period: 'Aug 2016 – Feb 2023',
     location: 'Menlo Park, CA, USA',
     accentColor: '#818cf8',
     achievements: [
-      { metric: '-2.3s TTI low-bandwidth',    description: 'Rendering path optimization for Ads Manager (React/Redux) — $4B+ annual ad spend' },
-      { metric: '95% UI regressions blocked', description: 'Pioneered Python visual regression testing framework integrated into CI/CD' },
-      { metric: '-18% build time',            description: 'Migrated 9 Webpack architectures to Vite across product surfaces' },
-      { metric: '-30% production bugs',       description: 'Mentored 5 engineers · instituted code review governance + Git workflows' },
+      { metric: 'Millions of users',         description: 'Built React interfaces for high-traffic products applying WCAG 2.1 accessibility standards and component architecture' },
+      { metric: '-30% frontend regressions', description: 'Reduced regressions through automated UI testing, stronger validation workflows, and release quality improvements' },
+      { metric: '12 features shipped',       description: 'Delivered 12 new features from concept to production in agile sprints, boosting user engagement on key product areas' },
+      { metric: 'Code splitting + lazy load', description: 'Optimized rendering performance reducing page load times and improving responsiveness for end users' },
     ],
   },
   {
-    id: 'GOOG',
-    company: 'Google LLC',
-    role: 'Software Developer Intern',
+    id: 'OVIA',
+    company: 'Ovia Health',
+    role: 'Web Developer',
     period: 'Jun 2013 – Jul 2016',
-    location: 'Mountain View, CA, USA',
+    location: 'Boston, MA, USA',
     accentColor: '#06b6d4',
     achievements: [
-      { metric: '<200ms latency · 3B+ users', description: 'Engineered real-time streaming UI for AI-assisted writing in Google Docs' },
-      { metric: 'Lighthouse 68 → 94',         description: 'Rebuilt shared React component library across 12 Google Workspace product surfaces' },
-      { metric: '+21% QoQ AI engagement',     description: 'Built Python/FastAPI telemetry pipeline for behavioral recommendation model fine-tuning' },
-      { metric: '52% → 89% test coverage',   description: 'Elevated unit tests + resolved 400+ WCAG 2.1 AA violations' },
+      { metric: 'Cross-platform UX',         description: 'Developed responsive web features for healthcare applications improving usability across desktop and mobile' },
+      { metric: 'Reusable component library', description: 'Built reusable UI components in TypeScript/React and integrated REST APIs with OpenAI API support' },
+      { metric: 'Faster dashboard dev',      description: 'Enabled faster dashboard and assessment development while reducing front-end code duplication' },
+      { metric: 'Iterative releases',        description: 'Supported product releases by troubleshooting issues, refining UI behavior, and implementing stakeholder-driven enhancements' },
     ],
   },
 ]
@@ -251,7 +251,7 @@ export default function Experience() {
             </motion.span>
           </h2>
           <p className="text-slate-400 max-w-xl leading-relaxed">
-            10+ years across Google, Meta, and high-growth startups — shipping infrastructure that moved metrics at scale.
+            10+ years across Meta, high-growth startups, and healthcare tech — shipping infrastructure that moved metrics at scale.
           </p>
         </div>
 

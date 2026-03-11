@@ -61,17 +61,13 @@ export default function Education() {
               </div>
               <div>
                 <div className="text-xs font-semibold text-violet-400 uppercase tracking-widest mb-1">
-                  B.S. Computer Science
+                  Bachelor&apos;s Degree, Computer Science
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Stanford University</h3>
                 <div className="flex flex-wrap gap-4">
                   <span className="flex items-center gap-1.5 text-xs text-slate-400">
                     <Calendar className="w-3.5 h-3.5 text-slate-500" />
-                    Sep 2009 – May 2013
-                  </span>
-                  <span className="flex items-center gap-1.5 text-xs text-slate-400">
-                    <MapPin className="w-3.5 h-3.5 text-slate-500" />
-                    Stanford, CA
+                    Aug 2009 - May 2013
                   </span>
                 </div>
               </div>
